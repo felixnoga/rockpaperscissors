@@ -62,12 +62,6 @@ module.exports = {
       template: path.resolve(__dirname, "src/index.html"),
       inject: "body",
     }),
-    new HtmlWebpackPlugin({
-      title: "Game",
-      filename: "game.html",
-      template: path.resolve(__dirname, "src/game.html"),
-      inject: "body",
-    }),
     new MiniCssExtractPlugin({
       filename: "css/[name].css",
     }),
@@ -79,8 +73,8 @@ module.exports = {
           force: true,
         },
         {
-          from: path.resolve(__dirname, "src/static/images"),
-          to: path.resolve(__dirname, "dist/images"),
+          from: path.resolve(__dirname, "src/static/_redirects"),
+          to: path.resolve(__dirname, "dist/"),
           force: true,
         },
         {

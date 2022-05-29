@@ -6,6 +6,8 @@ const resources = [
   "/images/icon_192.png",
   "/images/icon_512.png",
   "https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap",
+  "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0",
+  "https://fonts.googleapis.com/icon?family=Material+Icons",
 ];
 
 //Evento de instalación del service worker

@@ -10,14 +10,6 @@ module.exports = {
       import: path.resolve(__dirname, "src/index.js"),
       filename: "js/[name].bundle.js",
     },
-    // main: {
-    //   import: path.resolve(__dirname, "src/app.js"),
-    //   filename: "js/[name].bundle.js",
-    // },
-    // gameLogic: {
-    //   import: path.resolve(__dirname, "src/gameLogic.js"),
-    //   filename: "js/[name].bundle.js",
-    // },
   },
   output: {
     path: path.resolve(__dirname, "dist/"),
@@ -30,6 +22,10 @@ module.exports = {
   devServer: {
     static: path.join(__dirname, "dist"),
     historyApiFallback: true,
+    liveReload: false,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
   },
   //loaders para los estilos. Se utiliza miniCssExtract para exportar CSS a su propio archivo
   module: {

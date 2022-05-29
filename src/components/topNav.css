@@ -8,9 +8,24 @@ nav {
 }
 
 .nav-name {
-  color: #63cdda;
+  color: #f5cd79;
+  display: flex;
+  width: 7%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-name span {
+  font-size: 2rem;
 }
 
 .btn-exit {
   margin: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+
+.loosing {
+  color: #e66767;
 }

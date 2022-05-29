@@ -38,7 +38,6 @@ const PlayerForm = () => {
     }
     setError(false);
     const player = await createPlayer(name);
-    console.log(player);
 
     ctx.setUser({
       id: player.id,

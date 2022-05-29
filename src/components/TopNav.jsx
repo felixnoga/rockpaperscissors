@@ -7,21 +7,16 @@ import { useNavigate } from "react-router-dom";
 import { getPlayerPlaying, setNotPlaying } from "../helpers";
 
 const TopNav = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser, getCurrentUser } = useContext(UserContext);
 
   const navigate = useNavigate();
   useEffect(() => {
-    const fetchPlayerPlaying = async () => {
-      const current = await getPlayerPlaying();
-      if (current) {
-        console.log(current);
-        setUser(current);
-      } else {
-        navigate("/");
-      }
-    };
-    fetchPlayerPlaying();
-  }, []);
+    if (user) {
+      return;
+    } else {
+      navigate("/");
+    }
+  }, [user]);
 
   const handleClick = async () => {
     const id = user.id;

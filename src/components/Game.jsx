@@ -1,30 +1,47 @@
 import "./game.css";
-import { processSelection } from "../helpers";
-import { useState, useEffect } from "react";
+import { processSelection, returnTheWinner, computeScore } from "../helpers";
+import { UserContext } from "../contexts/userContext";
+import { useState, useEffect, useRef, useContext } from "react";
+import db from "../db";
 
 const Game = ({ updateName }) => {
   const [thinking, setThinking] = useState(false);
   const [computerSelection, setComputerSelection] = useState({});
   const [playerSelection, setPlayerSelection] = useState("");
-
   const [winner, setWinner] = useState("");
+  const [player, setPlayer] = useState({});
+
+  const ctx = useContext(UserContext);
+
+  const initialRender = useRef(true);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
+      const updatePlayerScore = async (id, newScore) => {
+        await db.players.update(id, { score: newScore });
+      };
       const { selected } = playerSelection;
       const { isWinner, computerSelection } = processSelection(selected);
-      setWinner(isWinner);
+      setWinner(returnTheWinner(isWinner));
       setComputerSelection(computerSelection);
+
+      if (player.id) {
+        let newScore = computeScore(isWinner);
+        ctx.setUser({ ...ctx.user, score: ctx.user.score + newScore });
+        updatePlayerScore(player.id, ctx.user.score + newScore);
+      }
+
       setThinking(false);
     }, 1000);
-
-    return () => {
-      clearTimeout(timer);
-    };
   }, [playerSelection]);
+
+  useEffect(() => {
+    setPlayer(ctx.user);
+  }, [ctx.user]);
 
   const computeSelection = (e) => {
     setThinking(true);
+    initialRender.current = false;
     setPlayerSelection({ selected: e.target.dataset.selection });
   };
 
@@ -52,11 +69,11 @@ const Game = ({ updateName }) => {
       {playerSelection && (
         <h3>YOU SELECTED {playerSelection.selected.toUpperCase()}</h3>
       )}
-      {computerSelection.name && !thinking && (
-        <h3>COMPUTER SELECTED {computerSelection.name.toUpperCase()}</h3>
+      {computerSelection.name && !thinking && !initialRender.current && (
+        <h3>COMPUTER SELECTED {computerSelection.name.toUpperCase()} </h3>
       )}
       {thinking && <h3>COMPUTER IS THINKING....</h3>}
-      {winner && <h2>{winner}</h2>}
+      {!thinking && winner && !initialRender.current && <h2>{winner}</h2>}
     </>
   );
 };

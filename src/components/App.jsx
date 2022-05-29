@@ -8,9 +8,7 @@ import PlayerForm from "./Form";
 import Game from "./Game";
 import TopNav from "./TopNav";
 
-import { UserContext } from "../contexts/userContext";
-
-import { UserProvider } from "../contexts/userContext";
+import { UserProvider, UserContext } from "../contexts/userContext";
 import { Routes, Route, Link } from "react-router-dom";
 
 const App = () => {

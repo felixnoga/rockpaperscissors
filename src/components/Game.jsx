@@ -6,46 +6,52 @@ const Game = ({ updateName }) => {
   const [thinking, setThinking] = useState(false);
   const [computerSelection, setComputerSelection] = useState({});
   const [playerSelection, setPlayerSelection] = useState("");
+
   const [winner, setWinner] = useState("");
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
-      const { isWinner, computerSelection } = processSelection(playerSelection);
+      const { selected } = playerSelection;
+      const { isWinner, computerSelection } = processSelection(selected);
       setWinner(isWinner);
       setComputerSelection(computerSelection);
       setThinking(false);
-    }, 1500);
+    }, 1000);
 
     return () => {
       clearTimeout(timer);
     };
   }, [playerSelection]);
 
-  const computeSelection = (selection) => {
+  const computeSelection = (e) => {
     setThinking(true);
-    setPlayerSelection(selection);
-    console.log(playerSelection);
+    setPlayerSelection({ selected: e.target.dataset.selection });
   };
 
   return (
     <>
       <button
         className={`piedra ${thinking ? "disabled" : ""}`}
-        onClick={() => computeSelection("piedra")}
+        data-selection="piedra"
+        onClick={computeSelection}
         disabled={thinking}
       ></button>
       <button
         className={`papel ${thinking ? "disabled" : ""}`}
-        onClick={() => computeSelection("papel")}
+        data-selection="papel"
+        onClick={computeSelection}
         disabled={thinking}
       ></button>
       <button
         className={`tijeras ${thinking ? "disabled" : ""}`}
-        onClick={() => computeSelection("tijeras")}
+        data-selection="tijeras"
+        onClick={computeSelection}
         disabled={thinking}
       ></button>
 
-      {playerSelection && <h3>YOU SELECTED {playerSelection.toUpperCase()}</h3>}
+      {playerSelection && (
+        <h3>YOU SELECTED {playerSelection.selected.toUpperCase()}</h3>
+      )}
       {computerSelection.name && !thinking && (
         <h3>COMPUTER SELECTED {computerSelection.name.toUpperCase()}</h3>
       )}

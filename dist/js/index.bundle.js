@@ -292,25 +292,30 @@ var Game = function Game(_ref) {
       playerSelection = _useState6[0],
       setPlayerSelection = _useState6[1];
 
-  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
-    console.log("efff");
-    var timer = setTimeout(function () {
-      console.log("effect");
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(""),
+      _useState8 = _slicedToArray(_useState7, 2),
+      winner = _useState8[0],
+      setWinner = _useState8[1];
 
+  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
+    var timer = window.setTimeout(function () {
       var _processSelection = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.processSelection)(playerSelection),
           isWinner = _processSelection.isWinner,
           computerSelection = _processSelection.computerSelection;
 
+      setWinner(isWinner);
       setComputerSelection(computerSelection);
-      console.log(computerSelection, isWinner);
       setThinking(false);
     }, 1500);
-    return clearTimeout(timer);
+    return function () {
+      clearTimeout(timer);
+    };
   }, [playerSelection]);
 
   var computeSelection = function computeSelection(selection) {
     setThinking(true);
     setPlayerSelection(selection);
+    console.log(playerSelection);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
@@ -338,6 +343,8 @@ var Game = function Game(_ref) {
       children: ["COMPUTER SELECTED ", computerSelection.name.toUpperCase()]
     }), thinking && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
       children: "COMPUTER IS THINKING...."
+    }), winner && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+      children: winner
     })]
   });
 };

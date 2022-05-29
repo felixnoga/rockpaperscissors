@@ -1,6 +1,6 @@
 # Rock, paper & scissors
 
-Pequeña aplicación del popular juego piedra, papel o tijeras. El build se encuentra disponible online en <https://tourmaline-strudel-5108b1.netlify.app](https://tourmaline-strudel-5108b1.netlify.app/>
+Pequeña aplicación del popular juego piedra, papel o tijeras. El build se encuentra disponible online en <https://tourmaline-strudel-5108b1.netlify.app/>
 
 ## Descripción y librerías utilizadas
 

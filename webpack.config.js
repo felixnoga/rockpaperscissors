@@ -78,6 +78,11 @@ module.exports = {
           force: true,
         },
         {
+          from: path.resolve(__dirname, "src/static/images"),
+          to: path.resolve(__dirname, "dist/images"),
+          force: true,
+        },
+        {
           from: path.resolve(__dirname, "src/sw.js"),
           to: path.resolve(__dirname, "dist"),
           force: true,

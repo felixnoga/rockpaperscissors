@@ -1,0 +1,19 @@
+/* contenedor formulario player */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #f19066;
+}
+
+/* logo */
+
+.logo {
+  font-size: 10rem;
+  margin-bottom: 2rem;
+  animation: lightSpeedInLeft; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
+}

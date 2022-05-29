@@ -1,0 +1,56 @@
+.piedra {
+  cursor: pointer;
+  background-image: url(../static/images/rock.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 50vw;
+  height: 20vh;
+  background-color: #f19066;
+  margin: 1rem 0;
+  transition: 0.3s ease-in-out;
+}
+
+.piedra:hover {
+  background-color: #ee7845;
+  transform: scale(1.1);
+}
+
+.papel {
+  cursor: pointer;
+  background-image: url(../static/images/paper.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 50vw;
+  height: 20vh;
+  background-color: #f19066;
+  margin: 1rem 0;
+  transition: 0.3s ease-in-out;
+}
+.papel:hover {
+  background-color: #ee7845;
+  transform: scale(1.1);
+}
+.tijeras {
+  cursor: pointer;
+  background-image: url(../static/images/sicssors.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 50vw;
+  height: 20vh;
+  background-color: #f19066;
+  margin: 1rem 0;
+  transition: 0.3s ease-in-out;
+}
+
+.tijeras:hover {
+  background-color: #ee7845;
+  transform: scale(1.1);
+}
+
+.disabled {
+  cursor: not-allowed;
+  background-color: #574b90 !important;
+}

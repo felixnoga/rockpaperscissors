@@ -1,0 +1,43 @@
+/* Estilos campos del formulario player */
+button {
+  margin-top: 2rem;
+  width: 20vw;
+  padding: 0.9rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: #f19066;
+  color: white;
+  border: none;
+  border-radius: 0.2rem;
+  transition: 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #ee7845;
+  color: #303952;
+}
+
+input {
+  border-radius: 0.2rem;
+  background-color: aliceblue;
+  border: #8b8a8b;
+  padding: 0.5rem 0.75rem;
+  width: 20vw;
+  font-size: 1rem;
+}
+
+input:focus {
+  background-color: aliceblue;
+  outline: none;
+  box-shadow: inset 0 0 2px 2px #f19066;
+  border: #f19066 1px solid;
+}
+
+.error {
+  box-shadow: inset 0 0 2px 2px #ad0404;
+  color: #e66767;
+}
+
+.span-error {
+  color: #e66767;
+}

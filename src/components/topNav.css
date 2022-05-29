@@ -1,0 +1,16 @@
+nav {
+  background-color: #596275;
+  min-height: 4rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #f19066;
+}
+
+.nav-name {
+  color: #63cdda;
+}
+
+.btn-exit {
+  margin: 0;
+}

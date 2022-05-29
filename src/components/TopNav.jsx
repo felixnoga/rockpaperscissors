@@ -11,7 +11,7 @@ const TopNav = () => {
 
   const navigate = useNavigate();
   useEffect(() => {
-    if (user) {
+    if (user.name !== "") {
       return;
     } else {
       navigate("/");

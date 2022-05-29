@@ -41,7 +41,7 @@ const TopNav = () => {
         </h3>
       )}
       {user.name && (
-        <h2 className={`${loosing ? "loosing" : ""}`}>SCORE: {user.score}</h2>
+        <h3 className={`${loosing ? "loosing" : ""}`}>SCORE: {user.score}</h3>
       )}
       {user.name && (
         <button className="btn-exit" onClick={handleClick}>

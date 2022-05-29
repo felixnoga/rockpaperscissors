@@ -54,3 +54,13 @@
   cursor: not-allowed;
   background-color: #574b90 !important;
 }
+
+@media (max-width: 480px) {
+  .piedra,
+  .papel,
+  .tijeras {
+    margin: 0.5rem;
+    width: 80vw;
+    height: 15vh;
+  }
+}
